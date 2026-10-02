@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 程式練習助手</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+    <div class="card">
+        <!-- 標題 -->
+        <header class="header">
+            <h1><span class="emoji">🤖</span> AI 程式練習助手</h1>
+            <p class="subtitle">這是一個用於練習程式設計的AI助理。請在下方輸入您的程式碼，並點擊「執行」按鈕以查看結果。</p>
+        </header>
+
+        <!-- 選擇 -->
+        <section class="section">
+            <h3 class="section-title">請選擇學習主題：</h3>
+            
+            <div class="radio-group">
+                <label class="radio-label">
+                    <input type="radio" name="topic" value="輸入輸出" checked>
+                    <span>輸入輸出</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="topic" value="條件判斷">
+                    <span>條件判斷</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="topic" value="迴圈">
+                    <span>迴圈</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="topic" value="串列">
+                    <span>串列</span>
+                </label>
+            </div>
+
+            <button type="button" class="btn-submit">幫我出題</button>
+        </section>
+
+        <!-- 題目 -->
+        <section class="info-box">
+            <h2>AI 題目</h2>
+            <p>請選擇主題，然後點選「幫我出題」按鈕，AI將為您產生一個練習題目。</p>
+        </section>
+
+        <!-- 學習回饋 -->
+        <section class="info-box">
+            <h2>AI 學習回饋</h2>
+            <p>請在下方輸入您的程式碼，然後點擊「執行」按鈕，AI將為您提供回饋和建議。</p>
+        </section>
+    </div>
+
+</body>
+</html>

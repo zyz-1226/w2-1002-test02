@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ede2fc;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* 中央白色卡片 */
+.card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 580px;
+    border-radius: 20px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* 頂部標題 */
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    color: #b763eb;
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.header .emoji {
+    font-size: 1.8rem;
+}
+
+.subtitle {
+    color: #93869b;
+    font-size: 0.95rem;
+    margin-top: 8px;
+}
+
+/* 選擇區塊 */
+.section {
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #242129;
+    margin-bottom: 15px;
+}
+
+/* 單選按鈕組 (淺綠色膠囊背景) */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.radio-label {
+    background-color: #e6d8f3;
+    padding: 8px 16px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #2e1b43;
+    transition: background-color 0.2s ease;
+}
+
+.radio-label:hover {
+    background-color: #c8b7e4;
+}
+
+.radio-label input[type="radio"] {
+    accent-color: #4a0d94;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* 幫我出題按鈕 */
+.btn-submit {
+    width: 100%;
+    background-color: #550d94;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: #3d0f76;
+}
+
+/* 淡綠色提示框 (AI 題目 / 學習回饋) */
+.info-box {
+    background-color: #f6f0fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.info-box:last-child {
+    margin-bottom: 0;
+}
+
+.info-box h2 {
+    color: #3c0f76;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.info-box p {
+    color: #443751;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
