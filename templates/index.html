@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 程式練習助手</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
@@ -12,45 +12,87 @@
         <!-- 標題 -->
         <header class="header">
             <h1><span class="emoji">🤖</span> AI 程式練習助手</h1>
-            <p class="subtitle">這是一個用於練習程式設計的AI助理。請在下方輸入您的程式碼，並點擊「執行」按鈕以查看結果。</p>
+            <p class="subtitle">這是一個用於練習程式設計的AI助理<br>請在下方輸入您的程式碼，並點擊「執行」按鈕以查看結果</p>
         </header>
 
         <!-- 選擇 -->
-        <section class="section">
-            <h3 class="section-title">請選擇學習主題：</h3>
-            
-            <div class="radio-group">
-                <label class="radio-label">
-                    <input type="radio" name="topic" value="輸入輸出" checked>
-                    <span>輸入輸出</span>
-                </label>
-                <label class="radio-label">
-                    <input type="radio" name="topic" value="條件判斷">
-                    <span>條件判斷</span>
-                </label>
-                <label class="radio-label">
-                    <input type="radio" name="topic" value="迴圈">
-                    <span>迴圈</span>
-                </label>
-                <label class="radio-label">
-                    <input type="radio" name="topic" value="串列">
-                    <span>串列</span>
-                </label>
+        <form method="post">
+            <section class="section">
+                <h3 class="section-title">請選擇學習主題：</h3>
+                
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="topic" value="輸入輸出" checked>
+                        <span>輸入輸出</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="topic" value="條件判斷">
+                        <span>條件判斷</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="topic" value="迴圈">
+                        <span>迴圈</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="topic" value="串列">
+                        <span>串列</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit">幫我出題</button>
+            </section>
+        </form>
+
+       <!-- 題目 -->
+        <section class="info-box">
+            <h2>AI 出題</h2>
+            {% if topic %}
+                <!-- <p>目前選擇的主題：<strong>{{ topic }}</strong></p> -->
+                <p style="margin-top: 10px; color: #333; font-weight: bold;">{{ question_text }}</p>
+                {% if topic == "輸入輸出" %}
+                <form method="POST">
+                    <input type="hidden" name="topic" value="{{ topic }}">
+                    
+                    
+                    <div class="options-container">
+                        <label class="blue-option-card">
+                            <input type="radio" name="student_answer" value="A" {% if student_answer == 'A' %}checked{% endif %}>
+                            A. input()
+                        </label>
+                        <label class="blue-option-card">
+                            <input type="radio" name="student_answer" value="B" {% if student_answer == 'B' %}checked{% endif %}>
+                            B. print()
+                        </label>
+                        <label class="blue-option-card">
+                            <input type="radio" name="student_answer" value="C" {% if student_answer == 'C' %}checked{% endif %}>
+                            C. len()
+                        </label>
+                        <label class="blue-option-card">
+                            <input type="radio" name="student_answer" value="D" {% if student_answer == 'D' %}checked{% endif %}>
+                            D. range()
+                        </label>
+                    </div>
+
+                    <!-- 使用你指定的紫色按鈕樣式 -->
+                    <button type="submit" class="purple-full-btn" name="action" value="check">提交答案</button>
+                </form>
+                {% endif %}
+            {% else %}
+                <p>請選擇主題，然後點選「幫我出題」按鈕，AI將為您產生一個練習題目。</p>
+            {% endif %}
+        </section>
+
+       <!-- 回饋 -->
+        <section class="info-box">
+            {% if feedback %}
+            <div class="feedback">
+                <h2>AI 回饋</h2>
+                <p>{{ feedback }}</p>
             </div>
-
-            <button type="button" class="btn-submit">幫我出題</button>
-        </section>
-
-        <!-- 題目 -->
-        <section class="info-box">
-            <h2>AI 題目</h2>
-            <p>請選擇主題，然後點選「幫我出題」按鈕，AI將為您產生一個練習題目。</p>
-        </section>
-
-        <!-- 學習回饋 -->
-        <section class="info-box">
-            <h2>AI 學習回饋</h2>
-            <p>請在下方輸入您的程式碼，然後點擊「執行」按鈕，AI將為您提供回饋和建議。</p>
+            {% else %}
+            <h2>AI 回饋</h2>
+            <p>請在上方輸入您的答案，然後點擊「提交答案」按鈕，AI將為您提供回饋和建議。</p>
+            {% endif %}
         </section>
     </div>
 
