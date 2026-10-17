@@ -40,14 +40,16 @@
                 </div>
 
                 <button type="submit" class="btn-submit">幫我出題</button>
+                <p style="margin-top: 12px;">目前選擇的主題：<strong>{{ topic }}</strong></p>
             </section>
         </form>
 
        <!-- 題目 -->
         <section class="info-box">
             <h2>AI 出題</h2>
+            
             {% if topic %}
-                <!-- <p>目前選擇的主題：<strong>{{ topic }}</strong></p> -->
+               
                 <p style="margin-top: 10px; color: #333; font-weight: bold;">{{ question_text }}</p>
                 {% if topic == "輸入輸出" %}
                 <form method="POST">
